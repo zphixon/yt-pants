@@ -9,21 +9,12 @@
     "description": "Edits YouTube Shorts URLs to regular YouTube /watch?v=xxx URLs",
 
     "permissions": [
-        "webNavigation",
         "tabs"
     ],
 
     "background": {
         "scripts": ["background.js"]
     },
-
-    //"content_scripts": [
-    //    {
-    //        "matches": ["*://*/*"],
-    //        "run_at": "document_end",
-    //        "js": ["edit-url.js"]
-    //    }
-    //],
 
     "browser_action": {
         "default_icon": "img/icon-32.png",
