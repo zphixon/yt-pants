@@ -5,17 +5,11 @@ browser.runtime.onMessage.addListener(message => {
   console.log('popup says ' + enabled);
 });
 
-let updated = new Set();
 function changeUrl(url, tabId) {
   if (url && url.includes('youtube.com/shorts/')) {
-    if (!updated.has(url)) {
-      updated.add(url);
-      browser.tabs.update(tabId, {
-        url: url.replace(/shorts\//, 'watch?v='),
-      });
-    } else {
-      updated.delete(url);
-    }
+    browser.tabs.update(tabId, {
+      url: url.replace(/shorts\//, 'watch?v='),
+    });
   }
 }
 
