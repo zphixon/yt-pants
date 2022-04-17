@@ -6,24 +6,12 @@ const filter = {
   ]
 };
 
-var replacedTabs = new Set();
-
-function changeUrl(details) {
-  console.log('looking at tab ' + details.tabId);
-  if (!replacedTabs.has(details.tabId)) {
-    console.log('editing tab ' + details.tabId);
-    replacedTabs.add(details.tabId);
-    browser.tabs.update(details.tabId, {
-      url: details.url.replace(/youtube.com\/shorts\//, 'youtube.com/watch?v=')
+browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (changeInfo.url && changeInfo.url.includes('youtube.com/shorts/')) {
+    console.log('tab ' + tabId + ' navigated to shorts');
+    browser.tabs.update(tabId, {
+      url: changeInfo.url.replace(/shorts\//, 'watch?v='),
     });
   }
-}
-
-function finishReplace(details) {
-  console.log('finished with tab ' + details.tabId);
-  replacedTabs.delete(details.tabId);
-}
-
-browser.webNavigation.onBeforeNavigate.addListener(changeUrl, filter);
-browser.webNavigation.onCompleted.addListener(finishReplace, filter);
+});
 

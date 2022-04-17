@@ -13,17 +13,17 @@
         "tabs"
     ],
 
-    //"background": {
-    //    "scripts": ["background.js"]
-    //},
+    "background": {
+        "scripts": ["background.js"]
+    },
 
-    "content_scripts": [
-        {
-            "matches": ["*://*/*"],
-            "run_at": "document_end",
-            "js": ["edit-url.js"]
-        }
-    ],
+    //"content_scripts": [
+    //    {
+    //        "matches": ["*://*/*"],
+    //        "run_at": "document_end",
+    //        "js": ["edit-url.js"]
+    //    }
+    //],
 
     "browser_action": {
         "default_icon": "img/icon-32.png",
