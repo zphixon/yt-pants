@@ -1,8 +1,9 @@
 {
     "manifest_version": 2,
     "name": "YT Pants",
-    "version": "0.0",
+    "version": "0.1",
     "icons": {
+        "32": "img/icon-32.png",
         "48": "img/icon-48.png"
     },
 

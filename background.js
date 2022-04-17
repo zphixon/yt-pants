@@ -2,7 +2,6 @@
 let enabled = true;
 browser.runtime.onMessage.addListener(message => {
   enabled = message.checked;
-  console.log('popup says ' + enabled);
 });
 
 function changeUrl(url, tabId) {
@@ -20,7 +19,6 @@ const filter = {
 };
 
 browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  console.log('change link? ' + enabled);
   if (enabled) {
     changeUrl(changeInfo.url, tabId);
   }
