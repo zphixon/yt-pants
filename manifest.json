@@ -9,6 +9,7 @@
     "description": "Edits YouTube Shorts URLs to regular YouTube /watch?v=xxx URLs",
 
     "permissions": [
+        "storage",
         "tabs"
     ],
 
