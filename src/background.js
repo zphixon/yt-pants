@@ -12,12 +12,6 @@ function changeUrl(url, tabId) {
   }
 }
 
-const filter = {
-  url: [
-    {hostContains: "youtube.com"},
-  ]
-};
-
 browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (enabled) {
     changeUrl(changeInfo.url, tabId);
